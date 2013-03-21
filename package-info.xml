@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+  <name>Facebook St&iacute;lusb&uacute; Bubor&eacute;k</name>
+	<id>WasdMan:Facebook Style Tooltips</id>
+	<type>modification</type>
+	<version>1.0</version>
+	
+	<!-- Install actions -->
+	<install for="2.0 - 2.99.99">
+	
+	    <!-- Read me -->
+	    <readme lang="english" parsebbc="true" type="file">readme.txt</readme>
+		
+		<!-- Modifications -->
+		<modification>install.xml</modification>
+		
+		<!-- CSS files -->
+		<require-file name="tipsy.css" destination="$themedir/css" />
+
+		<!-- JavaScript files -->
+		<require-file name="jquery.tipsy.js" destination="$themedir/scripts" />
+		
+	</install>
+	
+	<!-- Uninstall actions -->
+	<uninstall for="2.0 - 2.99.99">
+	
+		<!-- Modifications -->
+		<modification reverse="true">install.xml</modification>
+		
+		<!-- CSS files -->
+		<remove-file name="$themedir/css/tipsy.css" />
+
+		<!-- JavaScript files -->
+		<remove-file name="$themedir/scripts/jquery.tipsy.js" />
+		
+	</uninstall>	
+	
+</package-info>
