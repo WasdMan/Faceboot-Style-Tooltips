@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<!-- ---------------------------------------------------------------------------
+    Package: "Facebook Style Tooltips" mod for Simple Machines Forum (SMF) V2.0
+    Author: WasdMan and Heineken
+    Copyright (c) 2013 smf-portal.hu
+    License: license.txt (included with package) BSD
+---------------------------------------------------------------------------- -->
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+  <name>Facebook Style Tooltips</name>
+	<id>WasdMan:Facebook Style Tooltips</id>
+	<version>1.0</version>
+	
+<file name="$themedir/index.template.php">
+        <operation>
+            <search position="after"><![CDATA[    // RTL languages require an additional stylesheet.
+    if ($context['right_to_left'])
+        echo '
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css" />';]]></search>
+            <add><![CDATA[    // Tipsy jQuery Plugin style
+    echo '
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/tipsy.css" />';	]]></add>
+        </operation>
+		<operation>
+			<search position="after"><![CDATA[// Here comes the JavaScript bits!
+    echo ']]></search>
+			<add><![CDATA[<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="', $settings['theme_url'], '/scripts/jquery.tipsy.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $("[title]").tipsy({fade: true, gravity: $.fn.tipsy.autoNS});
+  });
+</script>]]></add>
+		</operation>
+    </file>
+
+</modification>
